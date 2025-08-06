@@ -17,9 +17,9 @@ public class AppContext {
     public static void renew (Scanner _scanner) {
         scanner = _scanner;
         systemController = new SystemController();
-        noticeBoardController = new NoticeBoardController();
-        noticeBoardService = new NoticeBoardService();
         noticeBoardRepository = new NoticeBoardRepository();
+        noticeBoardService = new NoticeBoardService();
+        noticeBoardController = new NoticeBoardController();
     }
 
     public static void renew () {

@@ -1,5 +1,6 @@
 package com.ll.domain.noticeBoard.service;
 
+import com.ll.AppContext;
 import com.ll.domain.noticeBoard.entity.Article;
 import com.ll.domain.noticeBoard.repository.NoticeBoardRepository;
 
@@ -7,7 +8,7 @@ public class NoticeBoardService {
     private final NoticeBoardRepository noticeBoardRepository;
 
     public  NoticeBoardService() {
-        noticeBoardRepository = new NoticeBoardRepository();
+        noticeBoardRepository = AppContext.noticeBoardRepository;
     }
 
     public Article write(String title, String  content){

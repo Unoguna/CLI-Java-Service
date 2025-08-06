@@ -24,10 +24,7 @@ public class App {
             Rq rq = new Rq(cmd);
 
             switch (rq.getActionName()) {
-                case "write" -> {
-                    noticeBoardController.writeArticle();
-                    return;
-                }
+                case "write" -> noticeBoardController.writeArticle();
                 case "exit" -> {
                     systemController.actionExit();
                     return;

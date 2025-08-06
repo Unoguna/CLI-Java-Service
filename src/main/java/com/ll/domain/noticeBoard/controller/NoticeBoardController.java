@@ -25,5 +25,6 @@ public class NoticeBoardController {
         Article article = noticeBoardService.write(title, content);
 
         System.out.println("=> 게시글이 등록되었습니다.");
+        System.out.println();
     }
 }
