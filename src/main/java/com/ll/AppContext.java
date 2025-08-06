@@ -1,4 +1,4 @@
-package com.ll.standard;
+package com.ll;
 
 import com.ll.domain.system.controller.SystemController;
 
