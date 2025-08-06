@@ -18,4 +18,8 @@ public class NoticeBoardRepository {
 
         return article;
     }
+
+    public List<Article> getList (){
+        return articleList;
+    }
 }

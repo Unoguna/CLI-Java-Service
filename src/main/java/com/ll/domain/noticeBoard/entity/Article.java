@@ -4,8 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.Date;
-
 @Getter
 @Setter
 @ToString //toString 오버라이드를 대신 해줌
@@ -15,10 +13,10 @@ public class Article {
     String content;
     String regDate;
 
-    public Article (String title, String content){
+    public Article (String title, String content, String regDate){
         this.title = title;
         this.content = content;
-        this.regDate = String.valueOf(new Date());
+        this.regDate = regDate;
     }
 
     public boolean isNew(){

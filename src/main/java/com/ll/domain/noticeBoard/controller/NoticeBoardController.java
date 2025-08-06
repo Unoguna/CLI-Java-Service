@@ -4,6 +4,8 @@ import com.ll.AppContext;
 import com.ll.domain.noticeBoard.entity.Article;
 import com.ll.domain.noticeBoard.service.NoticeBoardService;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class NoticeBoardController {
@@ -15,6 +17,12 @@ public class NoticeBoardController {
         this.noticeBoardService = AppContext.noticeBoardService;
     }
 
+    public String getCurrentDate() {
+        LocalDate today = LocalDate.now();  // 현재 날짜
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        return today.format(formatter);
+    }
+
     public void writeArticle(){
         System.out.print("제목: ");
         String title = scanner.nextLine();
@@ -22,9 +30,20 @@ public class NoticeBoardController {
         System.out.print("내용: ");
         String content = scanner.nextLine();
 
-        Article article = noticeBoardService.write(title, content);
+        Article article = noticeBoardService.write(title, content, getCurrentDate());
 
         System.out.println("=> 게시글이 등록되었습니다.");
         System.out.println();
+    }
+
+    public void listArticles(){
+        System.out.println("번호 | 제목 | 등록일");
+        System.out.println("-----------------------------");
+
+        for(Article article : noticeBoardService.getList()){
+            System.out.println(article.getId() + " | " + article.getTitle() + " | " + article.getRegDate());
+        }
+        System.out.println();
+
     }
 }

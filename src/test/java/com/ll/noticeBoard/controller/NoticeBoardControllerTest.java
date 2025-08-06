@@ -34,21 +34,21 @@ public class NoticeBoardControllerTest {
 
     @Test
     @DisplayName("목록")
-    void t4(){
+    void t3(){
         String rs = AppTestRunner.run("""
                 write
                 자바 공부1
                 자바 텍스트 게시판 만들기1
                 write
                 자바 공부2
-                자바 텍스트 게시판 만들기2
+                자바텍스트 게시판 만들기2
                 list
-        """);
+                """);
 
         assertThat(rs)
-                .contains("번호 | 제목       | 등록일")
+                .contains("번호 | 제목 | 등록일")
                 .contains("-----------------------------")
-                .contains("1    | 자바 공부1 | 2025-08-06")
-                .contains("1    | 자바 공부2 | 2025-08-06");
+                .contains("1 | 자바 공부1 | 2025-08-06")
+                .contains("2 | 자바 공부2 | 2025-08-06");
     }
 }
