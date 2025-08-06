@@ -94,4 +94,24 @@ public class NoticeBoardControllerTest {
                 .contains("내용: 콘솔 기반으로 구현")
                 .contains("등록일: 2025-08-06");
     }
+
+    @Test
+    @DisplayName("게시글 삭제")
+    void t6(){
+        String rs = AppTestRunner.run("""
+                write
+                자바 공부1
+                자바 텍스트 게시판 만들기1
+                write
+                자바 공부2
+                자바텍스트 게시판 만들기2
+                delete 1
+                list
+                """);
+
+        assertThat(rs)
+                .contains("=> 게시글이 삭제되었습니다.")
+                .contains("자바 공부1")
+                .doesNotContain("자바 공부2");
+    }
 }
