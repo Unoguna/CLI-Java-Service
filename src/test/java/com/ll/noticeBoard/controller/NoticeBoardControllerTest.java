@@ -71,4 +71,27 @@ public class NoticeBoardControllerTest {
                 .contains("내용: 자바 텍스트 게시판 만들기1")
                 .contains("등록일: 2025-08-06");
     }
+
+    @Test
+    @DisplayName("게시글 수정 처리")
+    void t5(){
+        String rs = AppTestRunner.run("""
+                write
+                자바 공부
+                자바 텍스트 게시판 만들기
+                update 1
+                Java 게시판
+                콘솔 기반으로 구현
+                detail 1
+                """);
+
+        assertThat(rs)
+                .contains("제목 (현재: 자바 공부1): ")
+                .contains("내용 (현재: 자바 텍스트 게시판 만들기): ")
+                .contains("=> 게시글이 수정되었습니다.")
+                .contains("번호: 1")
+                .contains("제목: Java 게시판")
+                .contains("내용: 콘솔 기반으로 구현")
+                .contains("등록일: 2025-08-06");
+    }
 }
