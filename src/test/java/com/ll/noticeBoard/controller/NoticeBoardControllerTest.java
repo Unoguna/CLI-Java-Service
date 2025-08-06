@@ -51,4 +51,24 @@ public class NoticeBoardControllerTest {
                 .contains("1 | 자바 공부1 | 2025-08-06")
                 .contains("2 | 자바 공부2 | 2025-08-06");
     }
+
+    @Test
+    @DisplayName("게시글 세부정보")
+    void t4(){
+        String rs = AppTestRunner.run("""
+                write
+                자바 공부1
+                자바 텍스트 게시판 만들기1
+                write
+                자바 공부2
+                자바텍스트 게시판 만들기2
+                detail 1
+        """);
+
+        assertThat(rs)
+                .contains("번호: 1")
+                .contains("제목: 자바 공부1")
+                .contains("내용: 자바 텍스트 게시파 만들기")
+                .contains("등록일: 2025-08-06");
+    }
 }
