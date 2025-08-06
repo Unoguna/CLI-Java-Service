@@ -123,6 +123,9 @@ public class NoticeBoardControllerTest {
                 자바 공부
                 자바 텍스트 게시판 만들기
                 detail 1
+                update 1
+                Java 게시판
+                콘솔 기반으로 구현
                 detail 1
                 """);
 

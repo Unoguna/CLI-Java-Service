@@ -49,10 +49,12 @@ public class NoticeBoardController {
 
     public void showDetail(int id){
         Article article = noticeBoardService.getArticle(id);
+        article.setCount(article.getCount() + 1);
 
         System.out.println("번호: " +  article.getId());
         System.out.println("제목: " +  article.getTitle());
         System.out.println("내용: " +   article.getContent());
+        System.out.println("조회수: " + article.getCount());
         System.out.println("등록일: " + article.getRegDate());
         System.out.println();
     }

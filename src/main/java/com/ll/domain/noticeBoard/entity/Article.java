@@ -9,6 +9,7 @@ import lombok.ToString;
 @ToString //toString 오버라이드를 대신 해줌
 public class Article {
     int id;
+    int count;
     String title;
     String content;
     String regDate;
