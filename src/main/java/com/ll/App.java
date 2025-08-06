@@ -23,10 +23,13 @@ public class App {
             String cmd = scanner.nextLine();
             Rq rq = new Rq(cmd);
 
+            int id = rq.getId();
+
             switch (rq.getActionName()) {
                 case "write" -> noticeBoardController.writeArticle();
                 case "list" -> noticeBoardController.listArticles();
-                case "detail" -> noticeBoardController.showDetail(rq.getId());
+                case "detail" -> noticeBoardController.showDetail(id);
+                case "update" -> noticeBoardController.updateArticle(id);
                 case "exit" -> {
                     systemController.actionExit();
                     return;

@@ -26,4 +26,8 @@ public class NoticeBoardRepository {
     public Article getArticle(int id){
         return articleList.get(id - 1);
     }
+
+    public void updateArticle(int id, Article article){
+        articleList.set(id - 1, article);
+    }
 }

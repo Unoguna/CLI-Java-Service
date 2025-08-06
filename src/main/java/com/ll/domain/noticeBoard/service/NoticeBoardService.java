@@ -28,4 +28,10 @@ public class NoticeBoardService {
         return noticeBoardRepository.getArticle(id);
     }
 
+    public void updateArticle(int id, String title, String content, String regDate){
+        Article article = new Article(title, content, regDate);
+        article.setId(id);
+        noticeBoardRepository.updateArticle(id, article);
+    }
+
 }

@@ -56,4 +56,19 @@ public class NoticeBoardController {
         System.out.println("등록일: " + article.getRegDate());
         System.out.println();
     }
+
+    public void updateArticle(int id){
+        Article article = noticeBoardService.getArticle(id);
+
+        System.out.print("제목 (현재: " + article.getTitle() + "): ");
+        String title = scanner.nextLine();
+
+        System.out.print("내용 (현재: " +  article.getContent() + "): ");
+        String content = scanner.nextLine();
+
+        noticeBoardService.updateArticle(id, title, content, getCurrentDate());
+
+        System.out.println("=> 게시글이 수정되었습니다.");
+        System.out.println();
+    }
 }

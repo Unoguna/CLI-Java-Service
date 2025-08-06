@@ -86,7 +86,7 @@ public class NoticeBoardControllerTest {
                 """);
 
         assertThat(rs)
-                .contains("제목 (현재: 자바 공부1): ")
+                .contains("제목 (현재: 자바 공부): ")
                 .contains("내용 (현재: 자바 텍스트 게시판 만들기): ")
                 .contains("=> 게시글이 수정되었습니다.")
                 .contains("번호: 1")
