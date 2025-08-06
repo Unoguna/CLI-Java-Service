@@ -30,6 +30,7 @@ public class App {
                 case "list" -> noticeBoardController.listArticles();
                 case "detail" -> noticeBoardController.showDetail(id);
                 case "update" -> noticeBoardController.updateArticle(id);
+                case "delete" -> noticeBoardController.deleteArticle(id);
                 case "exit" -> {
                     systemController.actionExit();
                     return;

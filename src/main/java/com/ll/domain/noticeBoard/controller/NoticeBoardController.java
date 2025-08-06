@@ -71,4 +71,10 @@ public class NoticeBoardController {
         System.out.println("=> 게시글이 수정되었습니다.");
         System.out.println();
     }
+
+    public void deleteArticle(int id){
+        noticeBoardService.deleteArticle(id);
+        System.out.println("=> 게시글이 삭제되었습니다.");
+        System.out.println();
+    }
 }

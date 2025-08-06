@@ -34,4 +34,8 @@ public class NoticeBoardService {
         noticeBoardRepository.updateArticle(id, article);
     }
 
+    public void deleteArticle(int id){
+        noticeBoardRepository.deleteArticle(id);
+    }
+
 }

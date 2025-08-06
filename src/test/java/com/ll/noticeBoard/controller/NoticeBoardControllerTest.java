@@ -111,7 +111,7 @@ public class NoticeBoardControllerTest {
 
         assertThat(rs)
                 .contains("=> 게시글이 삭제되었습니다.")
-                .contains("자바 공부1")
-                .doesNotContain("자바 공부2");
+                .contains("자바 공부2")
+                .doesNotContain("자바 공부1");
     }
 }

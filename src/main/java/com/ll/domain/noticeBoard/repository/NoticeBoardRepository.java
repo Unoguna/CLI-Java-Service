@@ -24,10 +24,25 @@ public class NoticeBoardRepository {
     }
 
     public Article getArticle(int id){
-        return articleList.get(id - 1);
+        return articleList
+                .stream()
+                .filter(article -> article.getId() == id)
+                .findFirst()
+                .orElse(null);
     }
 
     public void updateArticle(int id, Article article){
-        articleList.set(id - 1, article);
+        articleList
+                .stream()
+                .filter(a -> a.getId() == id)
+                .findFirst()
+                .ifPresent(a -> {
+                    a.setTitle(article.getTitle());
+                    a.setContent(article.getContent());
+                });
+    }
+
+    public void deleteArticle(int id){
+        articleList.remove(id - 1);
     }
 }
