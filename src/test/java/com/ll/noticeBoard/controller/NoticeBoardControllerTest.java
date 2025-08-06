@@ -114,4 +114,19 @@ public class NoticeBoardControllerTest {
                 .contains("자바 공부2")
                 .doesNotContain("자바 공부1");
     }
+
+    @Test
+    @DisplayName("게시글 조회수 기능")
+    void t7(){
+        String rs = AppTestRunner.run("""
+                write
+                자바 공부
+                자바 텍스트 게시판 만들기
+                detail 1
+                detail 1
+                """);
+
+        assertThat(rs)
+                .contains("조회수: 2");
+    }
 }
