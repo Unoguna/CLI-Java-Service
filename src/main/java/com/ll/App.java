@@ -1,5 +1,6 @@
 package com.ll;
 
+import com.ll.domain.noticeBoard.controller.NoticeBoardController;
 import com.ll.domain.system.controller.SystemController;
 import com.ll.global.rq.Rq;
 
@@ -14,6 +15,7 @@ public class App {
 
     public void run(){
         SystemController systemController = AppContext.systemController;
+        NoticeBoardController noticeBoardController = AppContext.noticeBoardController;
 
 
         while (true) {
@@ -22,6 +24,10 @@ public class App {
             Rq rq = new Rq(cmd);
 
             switch (rq.getActionName()) {
+                case "write" -> {
+                    noticeBoardController.writeArticle();
+                    return;
+                }
                 case "exit" -> {
                     systemController.actionExit();
                     return;
