@@ -46,4 +46,14 @@ public class NoticeBoardController {
         System.out.println();
 
     }
+
+    public void showDetail(int id){
+        Article article = noticeBoardService.getArticle(id);
+
+        System.out.println("번호: " +  article.getId());
+        System.out.println("제목: " +  article.getTitle());
+        System.out.println("내용: " +   article.getContent());
+        System.out.println("등록일: " + article.getRegDate());
+        System.out.println();
+    }
 }

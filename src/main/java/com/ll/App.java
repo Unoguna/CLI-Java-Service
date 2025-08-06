@@ -26,6 +26,7 @@ public class App {
             switch (rq.getActionName()) {
                 case "write" -> noticeBoardController.writeArticle();
                 case "list" -> noticeBoardController.listArticles();
+                case "detail" -> noticeBoardController.showDetail(rq.getId());
                 case "exit" -> {
                     systemController.actionExit();
                     return;

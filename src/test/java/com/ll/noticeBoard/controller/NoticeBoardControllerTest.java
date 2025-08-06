@@ -63,12 +63,12 @@ public class NoticeBoardControllerTest {
                 자바 공부2
                 자바텍스트 게시판 만들기2
                 detail 1
-        """);
+                """);
 
         assertThat(rs)
                 .contains("번호: 1")
                 .contains("제목: 자바 공부1")
-                .contains("내용: 자바 텍스트 게시파 만들기")
+                .contains("내용: 자바 텍스트 게시판 만들기1")
                 .contains("등록일: 2025-08-06");
     }
 }

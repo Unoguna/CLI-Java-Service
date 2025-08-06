@@ -24,4 +24,8 @@ public class NoticeBoardService {
         return noticeBoardRepository.getList();
     }
 
+    public Article getArticle(int id){
+        return noticeBoardRepository.getArticle(id);
+    }
+
 }

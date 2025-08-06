@@ -22,4 +22,8 @@ public class NoticeBoardRepository {
     public List<Article> getList (){
         return articleList;
     }
+
+    public Article getArticle(int id){
+        return articleList.get(id - 1);
+    }
 }
