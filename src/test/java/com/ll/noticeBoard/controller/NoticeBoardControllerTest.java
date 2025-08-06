@@ -132,4 +132,31 @@ public class NoticeBoardControllerTest {
         assertThat(rs)
                 .contains("조회수: 2");
     }
+
+    @Test
+    @DisplayName("게시글 검색 기능")
+    void t8(){
+        String rs = AppTestRunner.run("""
+                write
+                자바 공부
+                자바 텍스트 게시판 만들기
+                write
+                C언어 공부
+                C언어 텍스트 게시판 만들기
+                write
+                파이썬 공부
+                파이썬 텍스트 게시판 만들기
+                write
+                자바 프로젝트
+                자바 프로젝트 팀원 구해요.
+                write
+                테스트
+                자바 테스트
+                search 자바
+                """);
+        assertThat(rs)
+                .contains("1 | 자바 공부 | 2025-08-06")
+                .contains("4 | 자바 프로젝트 | 2025-08-06")
+                .contains("5 | 테스트 | 2025-08-06");
+    }
 }
