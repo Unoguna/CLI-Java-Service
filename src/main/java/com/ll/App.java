@@ -17,7 +17,7 @@ public class App {
 
 
         while (true) {
-            System.out.println("명령어 ");
+            System.out.print("명령어: ");
             String cmd = scanner.nextLine();
             Rq rq = new Rq(cmd);
 
