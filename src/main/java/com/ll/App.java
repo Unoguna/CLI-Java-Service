@@ -23,14 +23,16 @@ public class App {
             String cmd = scanner.nextLine();
             Rq rq = new Rq(cmd);
 
-            int id = rq.getId();
+
+            String param = rq.getId();
 
             switch (rq.getActionName()) {
                 case "write" -> noticeBoardController.writeArticle();
                 case "list" -> noticeBoardController.listArticles();
-                case "detail" -> noticeBoardController.showDetail(id);
-                case "update" -> noticeBoardController.updateArticle(id);
-                case "delete" -> noticeBoardController.deleteArticle(id);
+                case "detail" -> noticeBoardController.showDetail(Integer.parseInt(param));
+                case "update" -> noticeBoardController.updateArticle(Integer.parseInt(param));
+                case "delete" -> noticeBoardController.deleteArticle(Integer.parseInt(param));
+                case "search" -> noticeBoardController.searchArticle(param);
                 case "exit" -> {
                     systemController.actionExit();
                     return;

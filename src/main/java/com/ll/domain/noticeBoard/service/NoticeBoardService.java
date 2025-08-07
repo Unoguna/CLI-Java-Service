@@ -4,6 +4,7 @@ import com.ll.AppContext;
 import com.ll.domain.noticeBoard.entity.Article;
 import com.ll.domain.noticeBoard.repository.NoticeBoardRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class NoticeBoardService {
@@ -38,4 +39,15 @@ public class NoticeBoardService {
         noticeBoardRepository.deleteArticle(id);
     }
 
+    public List<Article> searchArticle(String param){
+        ArrayList<Article> articles = noticeBoardRepository.getList();
+        List<Article> result = new ArrayList<>();
+        for (Article article : articles) {
+            if ((article.getTitle() != null && article.getTitle().contains(param)) ||
+                    (article.getContent() != null && article.getContent().contains(param))) {
+                result.add(article);
+            }
+        }
+        return result;
+    }
 }

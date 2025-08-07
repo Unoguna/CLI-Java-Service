@@ -3,11 +3,10 @@ package com.ll.domain.noticeBoard.repository;
 import com.ll.domain.noticeBoard.entity.Article;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class NoticeBoardRepository {
 
-    private final List<Article> articleList = new ArrayList<>();
+    private final ArrayList<Article> articleList = new ArrayList<>();
     private int lastId = 0;
 
     public Article save (Article article){
@@ -19,7 +18,7 @@ public class NoticeBoardRepository {
         return article;
     }
 
-    public List<Article> getList (){
+    public ArrayList<Article> getList (){
         return articleList;
     }
 

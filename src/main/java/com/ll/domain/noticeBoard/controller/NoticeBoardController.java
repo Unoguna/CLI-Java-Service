@@ -79,4 +79,15 @@ public class NoticeBoardController {
         System.out.println("=> 게시글이 삭제되었습니다.");
         System.out.println();
     }
+
+    public void searchArticle(String param){
+        System.out.println("번호 | 제목 | 등록일");
+        System.out.println("-----------------------------");
+
+        for(Article article : noticeBoardService.searchArticle(param)){
+            System.out.println(article.getId() + " | " + article.getTitle() + " | " + article.getRegDate());
+        }
+
+        System.out.println();
+    }
 }

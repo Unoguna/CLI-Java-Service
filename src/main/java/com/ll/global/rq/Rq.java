@@ -2,13 +2,14 @@ package com.ll.global.rq;
 
 public class Rq {
     private final String actionName;
-    private final int id;
+    private final String param;
 
     public Rq(String cmd) {
         String[] cmdBits = cmd.split(" ", 2);
         actionName = cmdBits[0].trim();
 
-        id = cmdBits.length == 2  ? Integer.parseInt(cmdBits[1].trim()) : -1;
+
+        param = cmdBits.length == 2  ? cmdBits[1].trim() : "";
 
     }
 
@@ -16,7 +17,7 @@ public class Rq {
         return actionName;
     }
 
-    public int getId() {
-        return id;
+    public String getId() {
+        return param;
     }
 }

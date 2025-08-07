@@ -4,9 +4,20 @@ import com.ll.AppTestRunner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class NoticeBoardControllerTest {
+
+    public String getCurrentDate() {
+        LocalDate today = LocalDate.now();  // 현재 날짜
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        return today.format(formatter);
+    }
+
+    String currDate = getCurrentDate();
 
     @Test
     @DisplayName("등록")
@@ -48,8 +59,8 @@ public class NoticeBoardControllerTest {
         assertThat(rs)
                 .contains("번호 | 제목 | 등록일")
                 .contains("-----------------------------")
-                .contains("1 | 자바 공부1 | 2025-08-06")
-                .contains("2 | 자바 공부2 | 2025-08-06");
+                .contains("1 | 자바 공부1 | " + currDate)
+                .contains("2 | 자바 공부2 | " + currDate);
     }
 
     @Test
@@ -69,7 +80,7 @@ public class NoticeBoardControllerTest {
                 .contains("번호: 1")
                 .contains("제목: 자바 공부1")
                 .contains("내용: 자바 텍스트 게시판 만들기1")
-                .contains("등록일: 2025-08-06");
+                .contains("등록일: " + currDate);
     }
 
     @Test
@@ -92,7 +103,7 @@ public class NoticeBoardControllerTest {
                 .contains("번호: 1")
                 .contains("제목: Java 게시판")
                 .contains("내용: 콘솔 기반으로 구현")
-                .contains("등록일: 2025-08-06");
+                .contains("등록일: " + currDate);
     }
 
     @Test
@@ -155,8 +166,8 @@ public class NoticeBoardControllerTest {
                 search 자바
                 """);
         assertThat(rs)
-                .contains("1 | 자바 공부 | 2025-08-06")
-                .contains("4 | 자바 프로젝트 | 2025-08-06")
-                .contains("5 | 테스트 | 2025-08-06");
+                .contains("1 | 자바 공부 | " + currDate)
+                .contains("4 | 자바 프로젝트 | " + currDate)
+                .contains("5 | 테스트 | " + currDate);
     }
 }
